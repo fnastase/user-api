@@ -131,7 +131,7 @@ Access the enpoints (e.g. using curl or Postman) on the following paths:
 - user registration request - http://127.0.0.1:1337/users
 Example curl request:
 ```
-curl --location --request POST 'http://127.0.0.1:5000/users' --header 'Content-Type: application/json' --data-raw '{ "email": "test@email.com", "password": "password" }'
+curl --location --request POST 'http://127.0.0.1:1337/users' --header 'Content-Type: application/json' --data-raw '{ "email": "test@email.com", "password": "password" }'
 ```
 
 - user activation - http://127.0.0.1:1337/activate/{activation_data}
