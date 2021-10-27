@@ -30,6 +30,7 @@ The Flask web service contains the following modules:
 - models.py - DB related functions and ORM
 - email.py - contains EmailAPIController, a class for an external email API communication
 - helpers.py - helper functions
+For database upgrade and migrations the project uses Alembic (/migrations folder) and related Flask migration extension. 
 
 The unit and functional tests are located in /web/tests/ folder:
 - test_helpers.py - tests for helper functions
