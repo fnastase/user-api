@@ -121,3 +121,9 @@ Example curl request:
 ```
 curl --location --request GET 'http://127.0.0.1:1337/activate/NDE3NWU3Y2QtMWI2NS00NTk0LTg3NjItZTI5ODkxNTc1YjJhOjAwNDc%3D'
 ```
+
+## To be improved
+
+- use OpenAPI specification for endpoints, data validation, and documentation. This can be done using connexion or other extensions/frameworks.
+- better decoupling and testing for EmailAPIController used for external API integration
+- use authentication using API key, token or other methods 
