@@ -141,7 +141,7 @@ curl --location --request GET 'http://127.0.0.1:1337/activate/NDE3NWU3Y2QtMWI2NS
 
 ## To be improved
 
-- use OpenAPI specification for endpoints, data validation, and documentation. This can be done using connexion or other extensions/frameworks.
+- use OpenAPI specification for endpoints, data validation, versions, and documentation. This can be done using connexion or other extensions/frameworks.
 - better decoupling and testing for EmailAPIController used for external API integration. Now it uses a mocked/hardcoded implementation for the API request and prints the email body text in the console/logs.
 - use authentication using API key, token or other methods.
 - instead of Flask framework, **FasAPI** and **uvicorn** can be used. It comes with OpenAPI specification and data validation by default, it is much faster than Flask and it uses async.
