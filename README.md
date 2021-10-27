@@ -37,8 +37,11 @@ Reponses:
 
 ### Activate user
 Path: **/activate/{activation_data}**
+
 Description: The activate endpoint is accessed from the activation email received by the user after registration. The **activation_data** parameter is a base64 string composed of the user uuid (e.g. "7ee13bdb-533a-4822-af81-1d09e3e5800b") and the 4 digit activation code (e.g. "6389") split by ":" character. If the endpoint is accessed within a minute after the user registration with the correct uuid and activation code, then the user is activated.
+
 Request type: **GET**
+
 Parameters:
 - **activation_data**: string - base64 string encoded from uuid concatenated with activation code (e.g. "uuid:code", 7ee13bdb-533a-4822-af81-1d09e3e5800b:6389)
 
