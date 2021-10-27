@@ -18,3 +18,20 @@ In the Production environment there are three Docker containers:
 ## Architecture diagram
 
 ![alt text](https://github.com/fnastase/user-api/blob/main/image.png?raw=true)
+
+## API Endpoints
+
+### Register new user
+
+Path: '''/users'''
+Request: POST
+Type: JSON
+Body parameters:
+- '''email: string'''
+- '''password: string'''
+
+Reponses:
+- 200: OK - new user registrated
+- 400: Bad Request - invalid input data or user already registered
+- 500: Internal Server Error
+
