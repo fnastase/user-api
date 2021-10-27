@@ -21,9 +21,10 @@ In the Production environment there are three Docker containers:
 
 ## API Endpoints
 
-### Register new user
+### Register new user ```/users```
 
 Path: ```/users```
+
 Request: POST
 Type: JSON
 Body parameters:
