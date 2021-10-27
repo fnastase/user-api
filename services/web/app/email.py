@@ -36,7 +36,7 @@ class EmailAPIController(object):
         email_body = """
         Hello,
 
-        Thank you for your reigstration.
+        Thank you for your registration.
         Please use the following link to complete the registration process and activate your account:
         {link}
         """
