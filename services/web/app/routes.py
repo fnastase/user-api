@@ -8,29 +8,25 @@ from app.models import User
 from app.email import EmailAPIController
 
 
-@app.route('/')
-@app.route('/index')
-def index():
-    return "Hello, World!"
+# The following endpoint was used for testing. It can be uncommented when needed 
 
+# @app.route('/users', methods=['GET'])
+# def get_users():
+#     users = User.query.all()
 
-@app.route('/users', methods=['GET'])
-def get_users():
-    users = User.query.all()
+#     return_list = []
 
-    return_list = []
+#     for user in users:
+#         user_entry = {
+#             'email': user.email,
+#             'id': user.id,
+#             'password_hash': user.password_hash,
+#             'activation_email_date': user.activation_email_date,
+#             'activation_code': user.activation_code
+#         }
+#         return_list.append(user_entry)
 
-    for user in users:
-        user_entry = {
-            'email': user.email,
-            'id': user.id,
-            'password_hash': user.password_hash,
-            'activation_email_date': user.activation_email_date,
-            'activation_code': user.activation_code
-        }
-        return_list.append(user_entry)
-
-    return jsonify(return_list)
+#     return jsonify(return_list)
 
 
 @app.route('/users', methods=['POST'])
