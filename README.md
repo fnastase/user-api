@@ -1,7 +1,12 @@
 # User Registration API
 
 ## Description
-This repository contains a demo project for an user registration API implemented in Python with Flask, Postgres, and Docker.  
+This repository contains a demo project for a user registration API implemented in Python with Flask, Postgres, and Docker.  
+The API supports the following use cases:
+- Create an user with an email and a password.
+- Send an email to the user with a 4 digits code.
+- Activate this account with the 4 digits code received.
+- The user has only one minute to use this code. After that, an error should be raised.
 
 ## Project architecture and environments
 ### Dev/Test Environment
@@ -18,6 +23,18 @@ In the Production environment there are three Docker containers:
 ## Architecture diagram
 
 ![alt text](https://github.com/fnastase/user-api/blob/main/image.png?raw=true)
+
+## Web service project structure
+The Flask web service contains the following modules:
+- routes.py - Flask endpoints and routes
+- models.py - DB related functions and ORM
+- email.py - contains EmailAPIController, a class for an external email API communication
+- helpers.py - helper functions
+
+The unit and functional tests are located in /web/tests/ folder:
+- test_helpers.py - tests for helper functions
+- test_api.py - tests for API endpoints
+- test_db.py - tests for DB functions 
 
 ## API Endpoints
 
@@ -125,5 +142,6 @@ curl --location --request GET 'http://127.0.0.1:1337/activate/NDE3NWU3Y2QtMWI2NS
 ## To be improved
 
 - use OpenAPI specification for endpoints, data validation, and documentation. This can be done using connexion or other extensions/frameworks.
-- better decoupling and testing for EmailAPIController used for external API integration
-- use authentication using API key, token or other methods 
+- better decoupling and testing for EmailAPIController used for external API integration.
+- use authentication using API key, token or other methods.
+- instead of Flask framework, **FasAPI** can be used with **uvicorn**. It comes with OpenAPI specification and data validation by default, it is much faster than Flask and it uses async.
