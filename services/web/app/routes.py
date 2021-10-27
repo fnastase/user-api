@@ -39,10 +39,18 @@ def create_user():
 
     request_data = request.get_json()
 
-    email = request_data['email']
-    password = request_data['password']
-
     # validate input data
+    if 'email' not in request_data:
+        logging.error("Missing email field")
+        raise BadRequest("Missing email field")     
+
+    if 'password' not in request_data:
+        logging.error("Missing password field")
+        raise BadRequest("Missing password field")     
+
+    email = str(request_data['email'])
+    password = str(request_data['password'])
+
     if not helpers.is_valid_email(email):
         logging.error("Invalid email")
         raise BadRequest("Invalid email")
