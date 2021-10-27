@@ -51,4 +51,73 @@ Reponses:
 - **500: Internal Server Error** - server error
 
 
+## Running and Testing
 
+### Running the tests on Test environment
+
+Create and start the containers with docker-compoes:  
+```
+docker-compose -f docker-compose.test.yml up
+```
+
+Run the tests with docker-compose command:  
+```
+docker-compose exec web python manage.py test
+```
+
+If the previous command doesn't work, run within the container:
+```
+docker exec -it <container_id> /bin/bash
+root@<container_id>:/usr/src/app# python manage.py test 
+```
+
+### Running the Development environment
+Create and start the containers with docker-compoes:  
+```
+docker-compose -f docker-compose.yml up
+```
+
+Access the enpoints (e.g. using curl or Postman) on the following paths:
+
+- user registration request - http://127.0.0.1:5000/users
+Example curl request:
+```
+curl --location --request POST 'http://127.0.0.1:5000/users' --header 'Content-Type: application/json' --data-raw '{ "email": "test@email.com", "password": "password" }'
+```
+
+- user activation - http://127.0.0.1:5000/activate/{activation_data}
+
+Example curl request:
+```
+curl --location --request GET 'http://127.0.0.1:5000/activate/NDE3NWU3Y2QtMWI2NS00NTk0LTg3NjItZTI5ODkxNTc1YjJhOjAwNDc%3D'
+```
+Obs. The activation_data string can be found in the web container Docker logs, like in the following example with:
+```
+user-api-web-1    |         Hello,
+user-api-web-1    |
+user-api-web-1    |         Thank you for your registration.
+user-api-web-1    |         Please use the following link to complete the registration process and activate your account:
+user-api-web-1    |         http://127.0.0.1:5000/activate/NDE3NWU3Y2QtMWI2NS00NTk0LTg3NjItZTI5ODkxNTc1YjJhOjAwNDc%3D
+```
+The activation email body is printed in the Docker logs containing the activation data base64 string (e.g. "NDE3NWU3Y2QtMWI2NS00NTk0LTg3NjItZTI5ODkxNTc1YjJhOjAwNDc%3D").
+
+### Running the Prod environment
+Create and start the containers with docker-compoes:  
+```
+docker-compose -f docker-compose.prod.yml up
+```
+
+Access the enpoints (e.g. using curl or Postman) on the following paths:
+
+- user registration request - http://127.0.0.1:1337/users
+Example curl request:
+```
+curl --location --request POST 'http://127.0.0.1:5000/users' --header 'Content-Type: application/json' --data-raw '{ "email": "test@email.com", "password": "password" }'
+```
+
+- user activation - http://127.0.0.1:1337/activate/{activation_data}
+
+Example curl request:
+```
+curl --location --request GET 'http://127.0.0.1:1337/activate/NDE3NWU3Y2QtMWI2NS00NTk0LTg3NjItZTI5ODkxNTc1YjJhOjAwNDc%3D'
+```
